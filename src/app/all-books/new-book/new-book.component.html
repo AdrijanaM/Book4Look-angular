@@ -1,0 +1,15 @@
+<div id="searchField">
+  <form #f="ngForm" (ngSubmit)="onBookSubmit(f)">
+    <div class="form-group ">     
+            <input type="text" id="title" name="title"  ngModel class="form-control">     
+            <button class="btn btn-default" type="submit" right>Add</button>
+
+            <!--<div class="input-group" id="inputSearch">
+              <input type="text" class="form-control" id="name" name="name"  ngModel placeholder="Search author/book">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+              </span>
+            </div>-->
+    </div>
+  </form>
+</div>

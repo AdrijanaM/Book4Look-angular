@@ -1,0 +1,75 @@
+<!--<button class="btn btn-info" type="submit" (click)="authorInfo()">Author</button>-->
+<!--<app-new-author></app-new-author>-->
+<div id="searchField">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" id="authorForm">
+        <div class="form-group ">
+            <!--<input type="text" id="name" name="name"  ngModel class="form-control">     
+            <button class="btn btn-default" type="submit" right>search</button>-->
+            <div class="row">
+                <div class="col-md-3" id="radioButtons">
+                    <input type="radio" name="rbAuthor" value="author"> Author<br>
+                    <input type="radio" name="rbBook" value="book"> Book<br>
+                </div>
+                <div class="col-md-9 input-group" id="inputSearch">
+                    <input type="text" class="form-control" id="name" name="name" ngModel placeholder="Search author/book">
+                    <span class="input-group-btn">
+                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+<div class="container" style="height: auto">
+    <div class="row">
+        <div class="col-lg-4" style="padding-top: 50px">
+            <div class="list-group listLeft">
+                <a href="homePage.html">
+                    <button type="button" class="list-group-item active">
+                        <span class="fa fa-user"></span>&nbsp;Profile
+                    </button>
+                </a><br>
+                <a href="myWishList.html">
+                    <button type="button" class="list-group-item">
+                        <span class="fa fa-heart-o"></span>&nbsp;My wish list
+                    </button>
+                </a><br>
+                <a href="categoriesArt.html">
+                    <button type="button" class="list-group-item">
+                        <span class="fa fa-tags"></span>&nbsp;Categories
+                    </button>
+                </a><br>
+
+            </div>
+        </div>
+        <!--content-->
+        <div class="col-lg-7" style="padding-top: 20px">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2"><img src="https://images.gr-assets.com/books/1321125320m/1172958.jpg" class="img-responsive book" data-toggle="modal"
+                        data-target="#novelsModal1" /></div>
+                <div class="col-md-2"><img src="https://images.gr-assets.com/books/1315596657m/20424.jpg" class="img-responsive book" data-toggle="modal"
+                        data-target="#novelsModal2" /></div>
+                <div class="col-xs-12 shelf hidden-md hidden-lg"></div>
+                <div class="col-md-2"><img src="http://via.placeholder.com/100x150" class="img-responsive book" data-toggle="modal" data-target="#novelsModal3"
+                    /></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-2"></div>
+                <div class="col-xs-12 shelf"></div>
+                <div class="col-md-2"><img src="http://via.placeholder.com/100x150" class="img-responsive book" data-toggle="modal" data-target="#novelsModal4"
+                    /></div>
+                <div class="col-md-2"><img src="http://via.placeholder.com/100x150" class="img-responsive book" data-toggle="modal" data-target="#novelsModal5"
+                    /></div>
+                <div class="col-md-2"><img src="http://via.placeholder.com/100x150" class="img-responsive book" data-toggle="modal" data-target="#novelsModal6"
+                    /></div>
+                <div class="col-xs-12 shelf hidden-md hidden-lg"></div>
+                <div class="col-md-2"><img src="http://via.placeholder.com/100x150" class="img-responsive book" data-toggle="modal" data-target="#novelsModal7"
+                    /></div>
+                <div class="col-md-2"><img src="http://via.placeholder.com/100x150" class="img-responsive book" data-toggle="modal" data-target="#novelsModal8"
+                    /></div>
+                <div class="col-md-2"></div>
+                <div class="col-xs-12 shelf"></div>
+            </div>
+        </div>
+    </div>

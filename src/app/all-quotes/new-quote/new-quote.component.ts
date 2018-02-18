@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {QuoteService } from '../quote.service';
+import {QuoteService } from '../../services/quote.service';
 
 @Component({
   selector: 'app-new-quote',

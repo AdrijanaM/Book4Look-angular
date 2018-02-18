@@ -1,0 +1,34 @@
+.book {
+    padding: 10px 0 0 0;
+    margin: auto;
+}
+.book:hover{
+    box-shadow: 0 0 80px #8B5724;
+}
+
+.shelf {
+    border-bottom: 30px solid #5b3713;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    top: -15px;
+    z-index: -1;
+    width: 88%;
+}
+
+.searchField{
+    margin-top: 20px;
+    box-shadow: 0 0 80px #8B5724;
+    width: 50%;
+}
+
+#inputSearch{
+      margin-left:20%;
+      margin-right: 20%;
+      box-shadow: 0 0 80px #8B5724;
+      width: 50%;
+}
+
+#radioButtons{
+    display: inline;
+}
+  

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
-import { Quote} from '../quote.interfase';
-import {QuoteService} from '../quote.service';
+import { Quote} from '../../quote.interface';
+import {QuoteService} from '../../services/quote.service';
 
 @Component({
   selector: 'app-quote',

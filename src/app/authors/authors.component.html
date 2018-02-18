@@ -1,0 +1,12 @@
+<div class="row">
+            <div class="col-xs-12">
+                <a href="#" [routerLink]="['/authors']" (click)="onGetAuthors()">Authors</a>
+                <a href="#" [routerLink]="['/new-author']" style="float: right">Add</a>     
+       
+            </div>
+</div>
+<hr>
+<!--<button class="btn btn-primary" (click)="onGetQuotes()">Get Quotes</button>-->
+<hr>
+<!--<app-author *ngFor=" let author of authors" [author]="author" (authorDeleted)="onDelete($event)"></app-author>-->
+<app-author *ngFor=" let author of authors" [author]="author">Adrijana</app-author>

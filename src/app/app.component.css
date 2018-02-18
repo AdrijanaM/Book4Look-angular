@@ -1,3 +1,14 @@
-#app{
-    margin: 30px;
+@media screen and (min-width: 480px) {
+    #app {
+        margin: 100px;
+    }
+}
+@media screen and (max-width: 481px) {
+    #app {
+        margin: 70px;
+    }
+}
+#name{
+    text-align: right;
+    text-decoration: underline red;
 }

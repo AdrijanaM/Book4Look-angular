@@ -1,0 +1,14 @@
+.searchField{
+    margin-top: 20px;
+    box-shadow: 0 0 80px #8B5724;
+    width: 50%;
+}
+
+#inputSearch{
+      margin-left:20%;
+      margin-right: 20%;
+      box-shadow: 0 0 80px #8B5724;
+      width: 50%;
+}
+
+

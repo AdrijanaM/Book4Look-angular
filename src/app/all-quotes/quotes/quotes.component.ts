@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Quote } from '../quote.interfase';
+import { Quote } from '../../quote.interface';
 import {Response} from '@angular/http';
-
-import {QuoteService} from '../quote.service';
+import {QuoteService} from '../../services/quote.service';
 
 @Component({
   selector: 'app-quotes',
@@ -14,7 +13,6 @@ export class QuotesComponent implements OnInit {
   constructor(private quoteService: QuoteService ) { }
 
   ngOnInit() {
-
   }
 
   onGetQuotes() {
