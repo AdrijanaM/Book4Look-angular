@@ -13,6 +13,7 @@ import { User } from './User';
 })
 export class AppComponent implements OnInit {
   user: User;
+  logIn: any = false;
 
   constructor(private userService: UserService, private authorService: AuthorService) {
   }
@@ -27,9 +28,16 @@ export class AppComponent implements OnInit {
   //   });
   // }
 
+  isLogedIn() {
+    // if (this.userService.getToken() == null) {
+
+    // }
+    // return
+  }
 
   ngOnInit() {
     // this.userService.register(this.user.name, this.user.email, this.user.password);
   }
+
 
 }

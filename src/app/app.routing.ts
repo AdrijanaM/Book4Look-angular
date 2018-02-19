@@ -11,12 +11,14 @@ import { AuthorsComponent } from './authors/authors.component';
 import { NewAuthorComponent } from './new-author/new-author.component';
 import { BooksComponent } from './all-books/books/books.component';
 import { NewBookComponent } from './all-books/new-book/new-book.component';
+import {WelcomeComponent} from './welcome/welcome.component';
 
 const APP_ROUTES: Routes = [
 
+    {path: '', component: WelcomeComponent},
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'new-quote', component: NewQuoteComponent },
     { path: 'quotes', component: QuotesComponent },
     { path: 'new-author', component: NewAuthorComponent },

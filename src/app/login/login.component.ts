@@ -8,7 +8,6 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   constructor(private userService: UserService) { }
 
   ngOnInit() {

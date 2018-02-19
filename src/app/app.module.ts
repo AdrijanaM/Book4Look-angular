@@ -25,6 +25,7 @@ import { RegisterComponent } from './register/register.component';
 import { BookComponent } from './all-books/book/book.component';
 import { BooksComponent } from './all-books/books/books.component';
 import { NewBookComponent } from './all-books/new-book/new-book.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NewBookComponent } from './all-books/new-book/new-book.component';
     RegisterComponent,
     BookComponent,
     BooksComponent,
-    NewBookComponent
+    NewBookComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
-import { NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -15,13 +14,13 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
     }
 
-
     onRegister(form: NgForm) {
         this.userService.register(form.value.name, form.value.email, form.value.password)
-        .subscribe(
+            .subscribe(
             response => console.log(response),
             error => console.log(error)
-        );
+            );
     }
+
 
 }

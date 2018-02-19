@@ -4,14 +4,17 @@ import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/RX';
 import { User } from '../User';
+import { Router } from '@angular/router';
 
 
 @Injectable()
 export class UserService {
     // user: User;
-    constructor(private http: Http) { }
+    tokenCreated: boolean;
+    constructor(private http: Http, public router: Router) { }
 
     register(name: string, email: string, password: string) {
+        this.router.navigate(['/login']);
         return this.http.post('http://localhost:8000/api/user',
             {
                 name: name,
@@ -23,6 +26,7 @@ export class UserService {
                     'X-Requested-With': 'XMLHttpRequest'
                 })
             });
+
     }
 
     login(email: string, password: string) {
@@ -46,6 +50,8 @@ export class UserService {
             ).do(
             tokenData => {
                 localStorage.setItem('token', tokenData.token);
+                this.tokenCreated = true;
+                this.router.navigate(['/home']);
             }
             );
     }
@@ -55,7 +61,8 @@ export class UserService {
     }
 
     logout() {
-        localStorage.removeItem('token');
+        this.tokenCreated = false;
+        return localStorage.clear();
     }
 
 }
