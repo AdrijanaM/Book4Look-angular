@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {QuoteService } from '../../services/quote.service';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-quote',
@@ -9,7 +11,7 @@ import {QuoteService } from '../../services/quote.service';
 })
 export class NewQuoteComponent implements OnInit {
 
-  constructor(private quoteService: QuoteService) { }
+  constructor(private quoteService: QuoteService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +22,13 @@ export class NewQuoteComponent implements OnInit {
       () => alert('Quote created')
     );
     form.reset();
+  }
+
+
+  noToken() {
+    if (this.userService.getToken() == null) {
+      this.router.navigate(['']);
+    }
   }
 
 }

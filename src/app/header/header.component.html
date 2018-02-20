@@ -21,7 +21,7 @@
             <li><a href="#" [routerLink]="['/authors']">Authors</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Quotes</li>
-            <li><a href="#" [routerLink]="['/quotes']">All quotes</a></li>
+            <li><a href="#" (click)="showQuotes()">All quotes</a></li>
             <li><a href="#" [routerLink]="['/new-quote']">Add new quote</a></li>
           </ul>
         </li>
@@ -35,7 +35,9 @@
                     </span>
                 </div>
             </form>-->
-        <li><a href="#" [routerLink]="['']" (click)="logOut()">Logout</a></li>
+        <li>
+          <div id="name"><span class="glyphicon glyphicon-user"></span>s{{user}}</div><a href="#" [routerLink]="['']" (click)="logOut()">Logout</a>
+        </li>
         <!--<li><a href="/register">Register</a></li>-->
       </ul>
     </div>

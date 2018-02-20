@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Quote } from '../../quote.interface';
 import {Response} from '@angular/http';
 import {QuoteService} from '../../services/quote.service';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quotes',
@@ -10,7 +12,7 @@ import {QuoteService} from '../../services/quote.service';
 })
 export class QuotesComponent implements OnInit {
   quotes: Quote[];
-  constructor(private quoteService: QuoteService ) { }
+  constructor(private quoteService: QuoteService, private userService: UserService, private router: Router ) { }
 
   ngOnInit() {
   }
@@ -30,6 +32,12 @@ export class QuotesComponent implements OnInit {
       }
     );
       this.quotes.splice(position, 1);
+  }
+
+  noToken() {
+    if (this.userService.getToken() == null) {
+      this.router.navigate(['']);
+    }
   }
 
 }

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
-    // user: User;
+    userEmail: string;
     tokenCreated: boolean;
     constructor(private http: Http, public router: Router) { }
 
@@ -43,9 +43,10 @@ export class UserService {
             .map(
             (response: Response) => {
                 const token = response.json().token;
+                this.userEmail = response.json().email;
                 const base64Url = token.split('.')[1];
                 const base64 = base64Url.replace('-', '+').replace('_', '/');
-                return { token: token, decoded: JSON.parse(window.atob(base64)) };
+                return { userEmail: email, token: token, decoded: JSON.parse(window.atob(base64)) };
             }
             ).do(
             tokenData => {
@@ -63,6 +64,10 @@ export class UserService {
     logout() {
         this.tokenCreated = false;
         return localStorage.clear();
+    }
+
+    getUserEmail() {
+        return this.userEmail;
     }
 
 }

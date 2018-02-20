@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { UserService } from '../services/user.service';
-// import {Observable} from 'rxjs/RX';
 
 @Injectable()
 export class QuoteService {
