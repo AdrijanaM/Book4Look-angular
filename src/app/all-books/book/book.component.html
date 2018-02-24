@@ -1,3 +1,11 @@
-<p>
-  book works!
-</p>
+<div *ngIf="!noToken()">
+  <app-header></app-header>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-md-5"> <img [src]="book.image" style="width: 98px; height: 146px"></div>
+      <div class="col-md-7">
+        {{ book.title }} by {{book.bookAuthor}}
+        <p>{{book.description}}</p>
+      </div>
+    </div>
+  </div>

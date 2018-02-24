@@ -1,11 +1,16 @@
 <div *ngIf="!noToken()">
   <app-header></app-header>
+
   <hr>
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="form-group">
-      <label for="content"> Content</label>
-      <input type="text" id="content" name="content" ngModel class="form-control">
+      <label for="content"> Create new quote</label>
+      <div class="row">
+        <div class="col-md-10"><input type="text" id="content" name="content" ngModel class="form-control"></div>
+        <div class="col-md-2"><button class="btn btn-primary" type="submit">Save</button></div>
+      </div>
     </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
   </form>
+  <hr>
+  <app-quotes></app-quotes>
 </div>

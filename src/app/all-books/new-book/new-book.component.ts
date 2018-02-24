@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { BookService } from '../../services/book.service';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-book',
@@ -9,17 +11,23 @@ import { BookService } from '../../services/book.service';
 })
 export class NewBookComponent implements OnInit {
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onBookSubmit(form: NgForm) {
     this.bookService.addBook(form.value.title)
-    .subscribe(
+      .subscribe(
       () => alert('Book added')
-    );
+      );
     form.reset();
+  }
+
+  noToken() {
+    if (this.userService.getToken() == null) {
+      this.router.navigate(['']);
+    }
   }
 
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { QuoteService } from '../services/quote.service';
 import { Quote } from '../quote.interface';
-import { User } from '../User';
+import { User } from '../user.interface';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,9 @@ import { User } from '../User';
 })
 export class HeaderComponent implements OnInit {
   quotes: Quote[];
-  user = {};
+  user: User;
+  userEmail: string;
+
   constructor(private userService: UserService, private quoteService: QuoteService) { }
 
   ngOnInit() {
@@ -33,9 +35,7 @@ export class HeaderComponent implements OnInit {
   }
 
   userName() {
-    // return this.userService.getUserEmail();
-    this.user = this.userService.getUserEmail();
-     return this.user;
+    this.userEmail = this.userService.getUserEmail();
   }
 
 }

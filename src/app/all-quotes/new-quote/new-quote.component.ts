@@ -24,7 +24,6 @@ export class NewQuoteComponent implements OnInit {
     form.reset();
   }
 
-
   noToken() {
     if (this.userService.getToken() == null) {
       this.router.navigate(['']);

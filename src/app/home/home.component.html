@@ -3,26 +3,46 @@
 
 <div *ngIf="!noToken()">
     <app-header></app-header>
-    <div id="searchField">
-        <form #f="ngForm" (ngSubmit)="onSubmit(f)" id="authorForm">
-            <div class="form-group ">
-                <!--<input type="text" id="name" name="name"  ngModel class="form-control">     
-            <button class="btn btn-default" type="submit" right>search</button>-->
-                <div class="row">
-                    <div class="col-md-3" id="radioButtons">
-                        <input type="radio" name="rbAuthor" value="author"> Author<br>
-                        <input type="radio" name="rbBook" value="book"> Book<br>
-                    </div>
-                    <div class="col-md-9 input-group" id="inputSearch">
-                        <input type="text" class="form-control" id="name" name="name" ngModel placeholder="Search author/book">
-                        <span class="input-group-btn">
-                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
-                    </div>
-                </div>
 
+    <div id="searchField">
+
+        <!--<form #f="ngForm" (ngSubmit)="onSubmit(f)" id="authorForm">-->
+            <!--<div class="form-group">-->
+                <!--<input type="text" id="name" name="name" ngModel class="form-control">
+                <button class="btn btn-default" type="submit" right>search</button>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-3" id="radioBtns">-->
+                        <!--<input type="radio" value="title" name="search[field]" id="search_field_book" /> book-->
+                        <!--<input type="radio" value="author" name="search[field]" id="search_field_author" />author-->
+                    <!--</div>-->
+                    <!--<div class="col-md-9 input-group" id="inputSearch">-->
+                        <!--<input type="text" class="form-control" id="name" name="name" ngModel placeholder="Search by book title or author">-->
+                        <!--<span class="input-group-btn">-->
+                        <!--<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>-->
+                        <!--</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</form>-->
+
+        <!--<form #f="ngForm" (ngSubmit)="onSubmit(f)" id="authorForm" class="stacked greyBox searchBox searchBox large" action="/search"
+            accept-charset="UTF-8" method="get">
+            <input name="utf8" type="hidden" value="&#x2713;" />
+
+            <div class="greyText" >
+                <input type="text" name="q" size="55" value="" id="search_query_main" class="searchBox__input searchBox large__input" placeholder="Search by book title or author">
+                <input type="hidden" name="search_type" value="books">
+                <input type="submit" value="Search " class="btn btn-default searchBox__button searchBox large__button"/>
             </div>
-        </form>
+
+            <div>
+                <input type="radio" value="title" name="search[field]" id="search_field_title" /> title
+                <input type="radio" checked="checked" value="author" name="search[field]" id="search_field_author" /> author
+            </div>
+            <div class="clear"></div>
+
+        </form>-->
     </div>
     <div class="container" style="height: auto">
         <div class="row">

@@ -51,6 +51,7 @@ export class UserService {
             ).do(
             tokenData => {
                 localStorage.setItem('token', tokenData.token);
+                localStorage.setItem('email', tokenData.userEmail);
                 this.tokenCreated = true;
                 this.router.navigate(['/home']);
             }
@@ -67,7 +68,7 @@ export class UserService {
     }
 
     getUserEmail() {
-        return this.userEmail;
+        return localStorage.getItem('email');
     }
 
 }

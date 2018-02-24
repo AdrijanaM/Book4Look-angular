@@ -1,8 +1,13 @@
-<div class="row">
-            <div class="col-xs-12">
-                <a href="#" [routerLink]="['/books']" (click)="onGetBooks()">Books</a>
-                <a href="#" [routerLink]="['/new-book']" style="float: right">Add book</a>     
-            </div>
+<div *ngIf="!noToken()">
+    <app-header></app-header>
+    <div class="row">
+        <div class="col-xs-12">
+            <!--<a href="#" [routerLink]="['/books']" (click)="onGetBooks()">Books</a>
+            <a href="#" [routerLink]="['/new-book']">Add book</a>-->
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="onGetBooks()">Show Books</button>
+    <br>
+    <br>
+    <app-book *ngFor=" let book of books" [book]="book">Adrijana</app-book>
 </div>
-<hr>
-<app-book *ngFor=" let book of books" [book]="book">Adrijana</app-book>

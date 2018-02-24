@@ -1,13 +1,13 @@
 <div *ngIf="!noToken()">
-<app-header></app-header>
-    <!--<div class="row">
+    <app-header></app-header>
+    <div class="row">
         <div class="col-xs-12">
-            <a href="#" [routerLink]="['/quotes']" (click)="onGetQuotes()">Quotes</a>
-            <a href="#" [routerLink]="['/new-quote']">Add</a>
+            <!--<a href="#" [routerLink]="['/quotes']" (click)="onGetQuotes()">Quotes</a>-->
+            <!--<a href="#" [routerLink]="['/new-quote']">Add</a>-->
         </div>
-    </div>-->
-    <!--<button class="btn btn-primary" (click)="onGetQuotes()">Get Quotes</button>-->
-    <hr>
+    </div>
+    <button class="btn btn-primary" (click)="onGetQuotes()">Show Quotes</button>
+    <br>
+    <br>
     <app-quote *ngFor=" let quote of quotes" [quote]="quote" (quoteDeleted)="onDelete($event)"></app-quote>
-
 </div>

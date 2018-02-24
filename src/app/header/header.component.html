@@ -12,17 +12,21 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
+        <li><a href="/home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-heart-empty"> </span> Favourites 
+            <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#" [routerLink]="['/authors']">Authors</a></li>
             <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Quotes</li>
-            <li><a href="#" (click)="showQuotes()">All quotes</a></li>
-            <li><a href="#" [routerLink]="['/new-quote']">Add new quote</a></li>
+            <li><a href="#" [routerLink]="['/books']">Books</a></li>
+            <li role="separator" class="divider"></li>
+            <!--<li class="dropdown-header">Quotes</li>-->
+            <!--<li><a href="#" [routerLink]="['/quotes']">All quotes</a></li>-->
+            <li><a href="#" [routerLink]="['/quotes']">Quotes</a></li>
           </ul>
         </li>
       </ul>
@@ -35,8 +39,9 @@
                     </span>
                 </div>
             </form>-->
-        <li>
-          <div id="name"><span class="glyphicon glyphicon-user"></span>s{{user}}</div><a href="#" [routerLink]="['']" (click)="logOut()">Logout</a>
+          <li>
+            <span class="glyphicon glyphicon-user" (click)="userName()">{{userEmail}}</span>
+          <a href="#" [routerLink]="['']" (click)="logOut()"> <span class="glyphicon glyphicon-log-out"></span> Logout</a>
         </li>
         <!--<li><a href="/register">Register</a></li>-->
       </ul>

@@ -15,7 +15,8 @@ export class QuoteService {
     }
 
     getQuotes() {
-        return this.http.get('http://localhost:8000/api/quotes')
+        const token = this.userService.getToken();
+        return this.http.get('http://localhost:8000/api/quotes?token=' + token)
             .map(
             (response: Response) => {
                 return response.json().quotes;
