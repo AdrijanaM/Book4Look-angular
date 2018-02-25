@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Quote } from '../../quote.interface';
-import {Response} from '@angular/http';
-import {QuoteService} from '../../services/quote.service';
+import { Response } from '@angular/http';
+import { QuoteService } from '../../services/quote.service';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
@@ -12,16 +12,16 @@ import { Router } from '@angular/router';
 })
 export class QuotesComponent implements OnInit {
   quotes: Quote[];
-  constructor(private quoteService: QuoteService, private userService: UserService, private router: Router ) { }
+  constructor(private quoteService: QuoteService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onGetQuotes() {
-      this.quoteService.getQuotes()
+    this.quoteService.getQuotes(this.userService.getUserId())
       .subscribe(
-        (quotes: Quote []) => this.quotes = quotes,
-        (error: Response) => console.log(error)
+      (quotes: Quote[]) => this.quotes = quotes,
+      (error: Response) => console.log(error)
       );
   }
 
@@ -31,7 +31,7 @@ export class QuotesComponent implements OnInit {
         return quoteEl.id === quote.id;
       }
     );
-      this.quotes.splice(position, 1);
+    this.quotes.splice(position, 1);
   }
 
   noToken() {

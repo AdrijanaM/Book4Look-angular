@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 @Injectable()
 export class UserService {
     userEmail: string;
+    userId: number;
     tokenCreated: boolean;
+
     constructor(private http: Http, public router: Router) { }
 
     register(name: string, email: string, password: string) {
@@ -46,12 +48,17 @@ export class UserService {
                 this.userEmail = response.json().email;
                 const base64Url = token.split('.')[1];
                 const base64 = base64Url.replace('-', '+').replace('_', '/');
-                return { userEmail: email, token: token, decoded: JSON.parse(window.atob(base64)) };
+                const parsed = JSON.parse(window.atob(base64));
+                const userId = (parsed[Object.keys(parsed)[0]]);
+                // console.log('Logged USER ID: ' + this.userId);
+                return { userEmail: email, token: token, userID: userId };
             }
             ).do(
             tokenData => {
                 localStorage.setItem('token', tokenData.token);
                 localStorage.setItem('email', tokenData.userEmail);
+                localStorage.setItem('userId', tokenData.userID);
+                // localStorage.setItem('decoded', tokenData.decoded);
                 this.tokenCreated = true;
                 this.router.navigate(['/home']);
             }
@@ -67,8 +74,9 @@ export class UserService {
         return localStorage.clear();
     }
 
-    getUserEmail() {
-        return localStorage.getItem('email');
+    getUserId() {
+        const userID = Number(localStorage.getItem('userId'));
+        return userID;
     }
 
 }

@@ -14,14 +14,14 @@ export class QuoteService {
         return this.http.post('http://localhost:8000/api/quote?token=' + token, body, { headers: headers });
     }
 
-    getQuotes() {
+    getQuotes(userId: number) {
         const token = this.userService.getToken();
-        return this.http.get('http://localhost:8000/api/quotes?token=' + token)
+        return this.http.get('http://localhost:8000/api/quotes/' + userId + '?token=' + token)
             .map(
             (response: Response) => {
+                // console.log(response);
                 return response.json().quotes;
-            }
-            );
+            });
     }
 
     updateQuote(id: number, newContent: string) {

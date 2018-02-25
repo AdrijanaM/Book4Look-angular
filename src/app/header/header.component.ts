@@ -12,17 +12,17 @@ import { User } from '../user.interface';
 export class HeaderComponent implements OnInit {
   quotes: Quote[];
   user: User;
-  userEmail: string;
+  userId: number;
 
   constructor(private userService: UserService, private quoteService: QuoteService) { }
 
   ngOnInit() {
-    // this.user = this.userService.getUserEmail();
+    this.userId = this.userService.getUserId();
 
   }
 
   showQuotes() {
-    this.quoteService.getQuotes()
+    this.quoteService.getQuotes(this.userService.getUserId())
       .subscribe(
       (quotes: Quote[]) => this.quotes = quotes,
       (error: Response) => console.log(error)
@@ -33,9 +33,4 @@ export class HeaderComponent implements OnInit {
   logOut() {
     this.userService.logout();
   }
-
-  userName() {
-    this.userEmail = this.userService.getUserEmail();
-  }
-
 }
