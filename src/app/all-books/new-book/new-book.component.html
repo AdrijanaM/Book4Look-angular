@@ -5,8 +5,20 @@
   <form #f="ngForm" (ngSubmit)="onBookSubmit(f)">
     <div class="form-group">
       <div class="row">
-        <div class="col-md-10"><input type="text" id="title" name="title" ngModel class="form-control" placeholder="Search for a book.."></div>
-        <div class="col-md-2"> <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-10"> <input type="text" id="title" name="title" ngModel class="form-control" placeholder="Search for a book..">
+            </div>
+            <div class="col-md-2"><button id="searchBtn" class="btn btn-default" type="submit" (click)="onGetBook()">
+            <!--<app-book *ngFor=" let book of books" [book]="book"></app-book>-->
+            <span class="glyphicon glyphicon-search" (click)="onGetBook()"></span>
+          </button></div>
+          </div>
+
+        </div>
+        <div class="col-md-2">
+        </div>
       </div>
     </div>
   </form>

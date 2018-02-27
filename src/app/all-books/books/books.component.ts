@@ -19,7 +19,7 @@ export class BooksComponent implements OnInit {
   }
 
   public onGetBooks() {
-    this.bookService.getBooks()
+    this.bookService.getBooks(this.userService.getUserId())
       .subscribe(
       (books: Book[]) => this.books = books,
       (error: Response) => console.log(error)

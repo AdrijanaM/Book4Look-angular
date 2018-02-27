@@ -12,6 +12,7 @@ import { NewAuthorComponent } from './new-author/new-author.component';
 import { BooksComponent } from './all-books/books/books.component';
 import { NewBookComponent } from './all-books/new-book/new-book.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {ChallengeComponent} from './challenge/challenge.component';
 
 const APP_ROUTES: Routes = [
 
@@ -24,6 +25,7 @@ const APP_ROUTES: Routes = [
     { path: 'new-author', component: NewAuthorComponent },
     { path: 'authors', component: AuthorsComponent },
     { path: 'books', component: NewBookComponent },
+    {path: 'challenge', component: ChallengeComponent},
     // { path: 'books', component: BooksComponent }
 
 ];

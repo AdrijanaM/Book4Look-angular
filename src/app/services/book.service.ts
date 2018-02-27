@@ -17,13 +17,25 @@ export class BookService {
         return this.http.post('http://localhost:8000/api/book?token=' + token, body, { headers: headers });
     }
 
-    getBooks() {
-        return this.http.get('http://localhost:8000/api/books')
+    getBooks(userId: number) {
+        const token = this.userService.getToken();
+        return this.http.get('http://localhost:8000/api/books/' + userId + '?token=' + token)
             .map(
             (response: Response) => {
                 return response.json().books;
             }
             );
     }
+
+    getBook(userId: number, title: string) {
+        const token = this.userService.getToken();
+        return this.http.get('http://localhost:8000/api/book/' + userId + '?token=' + token)
+            .map(
+            (response: Response) => {
+                return response.json().book;
+            }
+            );
+    }
+
 
 }

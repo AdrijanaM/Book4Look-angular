@@ -15,9 +15,7 @@ export class BookComponent implements OnInit {
 
   constructor(private bookService: BookService, private userService: UserService, private router: Router) { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 
   noToken() {
     if (this.userService.getToken() == null) {
