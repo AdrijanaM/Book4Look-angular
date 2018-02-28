@@ -4,14 +4,19 @@ import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/RX';
 import { User } from '../User';
+import { Router } from '@angular/router';
 
 
 @Injectable()
 export class UserService {
-    // user: User;
-    constructor(private http: Http) { }
+    userEmail: string;
+    userId: number;
+    tokenCreated: boolean;
+
+    constructor(private http: Http, public router: Router) { }
 
     register(name: string, email: string, password: string) {
+        this.router.navigate(['/login']);
         return this.http.post('http://localhost:8000/api/user',
             {
                 name: name,
@@ -23,6 +28,7 @@ export class UserService {
                     'X-Requested-With': 'XMLHttpRequest'
                 })
             });
+
     }
 
     login(email: string, password: string) {
@@ -39,13 +45,22 @@ export class UserService {
             .map(
             (response: Response) => {
                 const token = response.json().token;
+                this.userEmail = response.json().email;
                 const base64Url = token.split('.')[1];
                 const base64 = base64Url.replace('-', '+').replace('_', '/');
-                return { token: token, decoded: JSON.parse(window.atob(base64)) };
+                const parsed = JSON.parse(window.atob(base64));
+                const userId = (parsed[Object.keys(parsed)[0]]);
+                // console.log('Logged USER ID: ' + this.userId);
+                return { userEmail: email, token: token, userID: userId };
             }
             ).do(
             tokenData => {
                 localStorage.setItem('token', tokenData.token);
+                localStorage.setItem('email', tokenData.userEmail);
+                localStorage.setItem('userId', tokenData.userID);
+                // localStorage.setItem('decoded', tokenData.decoded);
+                this.tokenCreated = true;
+                this.router.navigate(['/home']);
             }
             );
     }
@@ -55,7 +70,13 @@ export class UserService {
     }
 
     logout() {
-        localStorage.removeItem('token');
+        this.tokenCreated = false;
+        return localStorage.clear();
+    }
+
+    getUserId() {
+        const userID = Number(localStorage.getItem('userId'));
+        return userID;
     }
 
 }

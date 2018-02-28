@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Quote} from '../../quote.interface';
 import {QuoteService} from '../../services/quote.service';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quote',
@@ -13,7 +15,7 @@ export class QuoteComponent implements OnInit {
   editing = false;
   editValue = '';
 
-  constructor(private quoteService: QuoteService) { }
+  constructor(private quoteService: QuoteService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -46,6 +48,12 @@ export class QuoteComponent implements OnInit {
         this.quoteDeleted.emit(this.quote);
       }
     );
+  }
+
+  noToken() {
+    if (this.userService.getToken() == null) {
+      this.router.navigate(['']);
+    }
   }
 
 }

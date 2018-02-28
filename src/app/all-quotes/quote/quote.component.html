@@ -1,17 +1,20 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-{{ quote.content}}
-  </div>
+<div *ngIf="!noToken()">
+  <app-header></app-header>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      {{ quote.content}}
+    </div>
 
-<div class="panel-footer">
-  <div *ngIf="editing">
-      <input type="text" [(ngModel)]="editValue">
-      <a href="#" (click)="onUpdate()">Save</a>
-      <a href="#" (click)="onCancel()">Cancel</a>
+    <div class="panel-footer">
+      <div *ngIf="editing">
+        <input type="text" [(ngModel)]="editValue">
+        <a href="#" (click)="onUpdate()" [routerLink]="['/quotes']">Save</a>
+        <a href="#" (click)="onCancel()" [routerLink]="['/quotes']">Cancel</a>
+      </div>
+      <div *ngIf="!editing">
+        <a href="#" (click)="onEdit()" [routerLink]="['/quotes']">Edit</a>
+        <a href="#" (click)="onDelete()" [routerLink]="['/quotes']">Delete</a>
+      </div>
+    </div>
   </div>
-  <div *ngIf="!editing">
-      <a href="#" (click)="onEdit()">Edit</a>
-      <a href="#" (click)="onDelete()">Delete</a>
-  </div>
-</div>
 </div>

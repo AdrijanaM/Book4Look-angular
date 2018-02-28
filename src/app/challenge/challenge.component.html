@@ -1,0 +1,47 @@
+  <app-header></app-header>
+  <br>
+  <hr>
+<div *ngIf="!noToken()">
+  
+  <div class="row">
+    <div class="col-md-10"> Current date and time: </div>
+    <div class="col-md-2 right"><strong>{{time | date:'dd/MMM/yyyy HH:mm' }}</strong></div>
+  </div>
+
+  <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Set the challenge</h2>
+    </div>
+    <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="form-group">
+
+          Read <input type="number" id="numberOfBooks" name="numberOfBooks" ngModel placeholder="number" class="form-control">          books in 2018!
+
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-10"><input type="email" id="userEmail" name="userEmail" ngModel class="form-control" placeholder="User email.."></div>
+                <div class="col-md-2"><button type="submit" class="btn btn-info btn-sm">Send</button></div>
+              </div>
+
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+      </form>
+      <hr>
+
+    </div>
+    <div class="panel-footer">
+      <div class="row" id="twoBtns">
+        <button type="button" class="btn btn-success btn-sm">Accept</button>
+        <button type="button" class="btn btn-danger btn-sm">Decline</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <br>
+  <app-footer></app-footer>

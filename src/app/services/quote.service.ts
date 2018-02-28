@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { UserService } from '../services/user.service';
-// import {Observable} from 'rxjs/RX';
 
 @Injectable()
 export class QuoteService {
@@ -15,13 +14,14 @@ export class QuoteService {
         return this.http.post('http://localhost:8000/api/quote?token=' + token, body, { headers: headers });
     }
 
-    getQuotes() {
-        return this.http.get('http://localhost:8000/api/quotes')
+    getQuotes(userId: number) {
+        const token = this.userService.getToken();
+        return this.http.get('http://localhost:8000/api/quotes/' + userId + '?token=' + token)
             .map(
             (response: Response) => {
+                // console.log(response);
                 return response.json().quotes;
-            }
-            );
+            });
     }
 
     updateQuote(id: number, newContent: string) {
