@@ -13,20 +13,9 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li><a href="#" [routerLink]="['/home']"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <span class="glyphicon glyphicon-heart-empty"> </span> Favourites 
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#" [routerLink]="['/authors']">Authors</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#" [routerLink]="['/books']">Books</a></li>
-            <li role="separator" class="divider"></li>
-            <!--<li class="dropdown-header">Quotes</li>-->
-            <!--<li><a href="#" [routerLink]="['/quotes']">All quotes</a></li>-->
-            <li><a href="#" [routerLink]="['/quotes']">Quotes</a></li>
-          </ul>
-        </li>
+        <li><a href="#" [routerLink]="['/wishlist']"><span class="glyphicon glyphicon-heart-empty"></span> Favourites</a></li>
+        <li><a href="#" [routerLink]="['/challenges']"><span class="glyphicon glyphicon-envelope"></span> Inbox <span class="badge badge-danger">{{numberOfChallenges}}</span></a></li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!--<form class="navbar-form navbar-left">
@@ -37,8 +26,9 @@
                     </span>
                 </div>
             </form>-->
-          <li>
-            <span class="glyphicon glyphicon-user"  > {{userId}}</span>
+        <li> <a><span class="glyphicon glyphicon-user"> Hi,<b>{{userName}}</b></span></a>
+        </li>
+        <li>
           <a href="#" [routerLink]="['']" (click)="logOut()"> <span class="glyphicon glyphicon-log-out"></span> Logout</a>
         </li>
         <!--<li><a href="/register">Register</a></li>-->

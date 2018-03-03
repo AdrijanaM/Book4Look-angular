@@ -1,23 +1,19 @@
-  <app-header></app-header>
-  <br>
-  <hr>
+<app-header></app-header>
+<br>
+<hr>
 <div *ngIf="!noToken()">
-  
-  <div class="row">
-    <div class="col-md-10"> Current date and time: </div>
-    <div class="col-md-2 right"><strong>{{time | date:'dd/MMM/yyyy HH:mm' }}</strong></div>
-  </div>
 
-  <br>
-  <div class="panel panel-default">
+  <!--<div class="panel panel-default">
     <div class="panel-heading">
       <h2 class="panel-title">Set the challenge</h2>
     </div>
     <div class="panel-body">
+
+
       <form #f="ngForm" (ngSubmit)="onSubmit(f)">
         <div class="form-group">
 
-          Read <input type="number" id="numberOfBooks" name="numberOfBooks" ngModel placeholder="number" class="form-control">          books in 2018!
+          Read <input type="text" id="numberOfBooks" name="numberOfBooks" ngModel placeholder="number" class="form-control">          books in 2018!
 
           <div class="row">
             <div class="col-md-2"></div>
@@ -33,15 +29,29 @@
         </div>
       </form>
       <hr>
+    </div>
+  </div>-->
 
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h4>The challenge is set by: {{challenge.idOfSender}}</h4>
+      <h2>Number of books: {{ challenge.numberOfBooks}}</h2>
+      <button id="twoBtns" type="button" class="btn btn-danger btn-sm" (click)="onDelete()" [routerLink]="['/challenges']">Decline</button>
     </div>
-    <div class="panel-footer">
-      <div class="row" id="twoBtns">
-        <button type="button" class="btn btn-success btn-sm">Accept</button>
-        <button type="button" class="btn btn-danger btn-sm">Decline</button>
+
+    <!--<div class="panel-footer">
+      <div *ngIf="editing">
+        <input type="text" [(ngModel)]="editValue">
+        <a href="#" (click)="onUpdate()" [routerLink]="['/quotes']">Save</a>
+        <a href="#" (click)="onCancel()" [routerLink]="['/quotes']">Cancel</a>
       </div>
-    </div>
+      <div *ngIf="!editing">
+        <a href="#" (click)="onEdit()" [routerLink]="['/quotes']">Edit</a>
+        <a href="#" (click)="onDelete()" [routerLink]="['/quotes']">Delete</a>
+      </div>
+    </div>-->
   </div>
+
 </div>
-  <br>
-  <app-footer></app-footer>
+<br>
+<!--<app-footer></app-footer>-->

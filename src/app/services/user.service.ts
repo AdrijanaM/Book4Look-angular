@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class UserService {
     userEmail: string;
     userId: number;
+    user: User;
     tokenCreated: boolean;
 
     constructor(private http: Http, public router: Router) { }
@@ -74,9 +75,20 @@ export class UserService {
         return localStorage.clear();
     }
 
+
     getUserId() {
         const userID = Number(localStorage.getItem('userId'));
         return userID;
+    }
+
+    getCurrentUser() {
+        const token = this.getToken();
+        return this.http.get('http://localhost:8000/api/getUser?token=' + token)
+            .map(
+            (response: Response) => {
+                return response.json().user;
+            }
+            );
     }
 
 }

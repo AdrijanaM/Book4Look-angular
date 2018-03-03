@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 import { UserService } from '../../services/user.service';
@@ -12,7 +12,12 @@ import { Book } from '../../book.interface';
 })
 export class NewBookComponent implements OnInit {
   bookTitle: string;
+  books: Book[];
   book: Book;
+  // @Input() book: Book;
+  // @Output() bookGeted = new EventEmitter<Book>(); // an event
+
+
   constructor(private bookService: BookService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
@@ -21,20 +26,19 @@ export class NewBookComponent implements OnInit {
   onBookSubmit(form: NgForm) {
     this.bookService.addBook(form.value.title)
       .subscribe(
-      () => alert('Book added')
+      () => alert('Searched book was found')
       );
-    this.bookTitle = form.value.title;
+    this.onGetBook(form);
     form.reset();
   }
 
-  onGetBook() {
-    this.bookService.getBook(this.userService.getUserId(), this.bookTitle)
+  onGetBook(form: NgForm) {
+    this.bookService.getBook(form.value.title)
       .subscribe(
       (book: Book) => this.book = book,
       (error: Response) => console.log(error)
       );
   }
-
 
   noToken() {
     if (this.userService.getToken() == null) {

@@ -8,12 +8,12 @@ import { AppComponent } from './app.component';
 import { QuoteComponent } from './all-quotes/quote/quote.component';
 import { QuotesComponent } from './all-quotes/quotes/quotes.component';
 import { NewQuoteComponent } from './all-quotes/new-quote/new-quote.component';
-import {routing} from './app.routing';
-import {QuoteService} from './services/quote.service';
-import {UserService} from './services/user.service';
-import {AuthorService} from './services/author.service';
-import {BookService} from './services/book.service';
-import {ChallengeService} from './challenge/challenge.service';
+import { routing } from './app.routing';
+import { QuoteService } from './services/quote.service';
+import { UserService } from './services/user.service';
+import { AuthorService } from './services/author.service';
+import { BookService } from './services/book.service';
+import { ChallengeService } from './challenge/challenge.service';
 
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
@@ -29,6 +29,9 @@ import { NewBookComponent } from './all-books/new-book/new-book.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FooterComponent } from './footer/footer.component';
 import { ChallengeComponent } from './challenge/challenge.component';
+import { NewChallengeComponent } from './new-challenge/new-challenge.component';
+import { ChallengesComponent } from './challenges/challenges.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { ChallengeComponent } from './challenge/challenge.component';
     NewBookComponent,
     WelcomeComponent,
     FooterComponent,
-    ChallengeComponent
+    ChallengeComponent,
+    NewChallengeComponent,
+    ChallengesComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,7 @@ import { ChallengeComponent } from './challenge/challenge.component';
     routing,
     FormsModule
   ],
-  providers: [QuoteService, UserService, AuthorService, BookService, ChallengeService],
+  providers: [QuoteService, UserService, AuthorService, BookService, ChallengeService, ChallengesComponent, HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

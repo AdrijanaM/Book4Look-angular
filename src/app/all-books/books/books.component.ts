@@ -26,7 +26,7 @@ export class BooksComponent implements OnInit {
       );
   }
 
-   noToken() {
+  noToken() {
     if (this.userService.getToken() == null) {
       this.router.navigate(['']);
     }

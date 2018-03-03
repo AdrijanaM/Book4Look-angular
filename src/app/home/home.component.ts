@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { AuthorService } from '../services/author.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { User } from '../user.interface';
+import { Book } from '../book.interface';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +12,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //  authorProfile = {};
-
+  user: User;
+  books: Book[];
   constructor(private authorService: AuthorService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    this.onGetUser();
   }
 
   onSubmit(form: NgForm) {
@@ -25,6 +28,13 @@ export class HomeComponent implements OnInit {
       );
     form.reset();
     this.router.navigate(['/authors']);
+  }
+
+  onGetUser() {
+    this.userService.getCurrentUser().subscribe(
+      (user: User) => this.user = user,
+      (error: Response) => console.log(error)
+    );
   }
 
   noToken() {

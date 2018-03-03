@@ -1,9 +1,12 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    {{ author.fullName}}
+<div *ngIf="!noToken()">
+  <app-header></app-header>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      {{ author.fullName}}
 
-  </div>
-  <div class="panel-footer">
-    {{author.about}}
+    </div>
+    <div class="panel-footer">
+      <p [innerHTML]="author.about"></p>
+    </div>
   </div>
 </div>

@@ -1,6 +1,9 @@
-import { Component, OnInit, Input, Output} from '@angular/core';
-import { Author} from '../author.interface';
-import {AuthorService} from '../services/author.service';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { Author } from '../author.interface';
+import { AuthorService } from '../services/author.service';
+
+import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-author',
@@ -9,29 +12,16 @@ import {AuthorService} from '../services/author.service';
 })
 export class AuthorComponent implements OnInit {
   @Input() author: Author;
-  editing = false;
-  editValue = '';
 
-  constructor(private authorService: AuthorService) { }
+  constructor(private authorService: AuthorService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  onEdit() {
-    this.editing = true;
-    this.editValue = this.author.fullName;
-  }
-
-
-  onUpdate() { // save
-    // this.authorService.updateAuthor(this.author.idauthor, this.editValue)
-    //     .subscribe(
-    //       (author: Author) => {
-    //         this.author.name = this.editValue;
-    //         this.editValue = '';
-    //       }
-    //     );
-    // this.editing = false;
+  noToken() {
+    if (this.userService.getToken() == null) {
+      this.router.navigate(['']);
+    }
   }
 
 }
