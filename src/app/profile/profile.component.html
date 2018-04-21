@@ -1,0 +1,16 @@
+<div *ngIf="!noToken()">
+  <app-header></app-header>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading ">PROFILE</div>
+    <div class="panel-body">
+      <p> Name: <b>{{user.name}}</b></p>
+      <hr>
+     <p> Email: <b>{{user.email}}</b></p>
+     <p> Profile created: <b>{{user.created_at}}</b></p>
+    </div>
+  </div>
+
+
+</div>

@@ -1,5 +1,6 @@
-export interface Book {
-   numberOfBooks: number;
-   idOfSender: number;
-   ifOfReceiver: number;
+export interface Challenge {
+    id: number;
+    numberOfBooks: number;
+    idOfSender: number;
+    ifOfReceiver: number;
 }

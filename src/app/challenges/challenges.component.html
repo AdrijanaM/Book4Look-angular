@@ -1,0 +1,8 @@
+<div *ngIf="!noToken()">
+    <app-header></app-header>
+    <br>
+    <button class="btn btn-primary" (click)="onGetChallenges()">Show Challenges</button>
+    <br>
+    <br>
+    <app-challenge *ngFor=" let challenge of challenges" [challenge]="challenge" (challengeDeleted)="onDelete($event)"></app-challenge>
+</div>

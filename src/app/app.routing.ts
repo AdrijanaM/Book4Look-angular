@@ -12,7 +12,10 @@ import { NewAuthorComponent } from './new-author/new-author.component';
 import { BooksComponent } from './all-books/books/books.component';
 import { NewBookComponent } from './all-books/new-book/new-book.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {ChallengeComponent} from './challenge/challenge.component';
+import { ChallengeComponent } from './challenge/challenge.component';
+import { ChallengesComponent } from './challenges/challenges.component';
+import { NewChallengeComponent } from './new-challenge/new-challenge.component';
+
 
 const APP_ROUTES: Routes = [
 
@@ -21,12 +24,9 @@ const APP_ROUTES: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'home', component: HomeComponent },
     { path: 'quotes', component: NewQuoteComponent },
-    // { path: 'quotes', component: QuotesComponent },
-    { path: 'new-author', component: NewAuthorComponent },
-    { path: 'authors', component: AuthorsComponent },
+    { path: 'authors', component: NewAuthorComponent },
     { path: 'books', component: NewBookComponent },
-    {path: 'challenge', component: ChallengeComponent},
-    // { path: 'books', component: BooksComponent }
+    { path: 'challenges', component: NewChallengeComponent },
 
 ];
 

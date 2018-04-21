@@ -34,6 +34,7 @@ export class QuotesComponent implements OnInit {
     this.quotes.splice(position, 1);
   }
 
+
   noToken() {
     if (this.userService.getToken() == null) {
       this.router.navigate(['']);

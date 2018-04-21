@@ -1,15 +1,29 @@
-<div id="searchField">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" id="authorForm">
-    <div class="form-group ">     
-            <input type="text" id="name" name="name"  ngModel class="form-control">     
-            <button class="btn btn-default" type="submit" right>Add</button>
+<div *ngIf="!noToken()" id="searchField">
+  <app-header></app-header>
+  Read more informations about authors
+  <hr>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-md-10"> <input type="text" id="fullName" name="fullName" ngModel class="form-control" placeholder="Search for an author..">
+            </div>
+            <div class="col-md-2"><button id="searchBtn" class="btn btn-default" type="submit" (click)="onGetAuthor(f)">
+            <span class="glyphicon glyphicon-search" ></span>
+          </button>
+            </div>
+          </div>
 
-            <!--<div class="input-group" id="inputSearch">
-              <input type="text" class="form-control" id="name" name="name"  ngModel placeholder="Search author/book">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-              </span>
-            </div>-->
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
     </div>
   </form>
+  <hr>
+
+  <app-author *ngIf="author" [author]="author"></app-author>
+  <app-authors></app-authors>
 </div>

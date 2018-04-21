@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { Book} from '../../book.interface';
-import {BookService} from '../../services/book.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Book } from '../../book.interface';
+import { BookService } from '../../services/book.service';
 
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
@@ -15,13 +15,12 @@ export class BookComponent implements OnInit {
 
   constructor(private bookService: BookService, private userService: UserService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   noToken() {
     if (this.userService.getToken() == null) {
       this.router.navigate(['']);
     }
   }
-
 
 }

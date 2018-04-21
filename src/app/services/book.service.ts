@@ -27,15 +27,13 @@ export class BookService {
             );
     }
 
-    getBook(userId: number, title: string) {
+    getBook(title: string) {
         const token = this.userService.getToken();
-        return this.http.get('http://localhost:8000/api/book/' + userId + '?token=' + token)
-            .map(
+        return this.http.get('http://localhost:8000/api/book/' + title + '?token=' + token).map(
             (response: Response) => {
                 return response.json().book;
             }
-            );
+        );
     }
-
 
 }

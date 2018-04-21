@@ -5,23 +5,23 @@
     <div id="searchField">
 
         <!--<form #f="ngForm" (ngSubmit)="onSubmit(f)" id="authorForm">-->
-            <!--<div class="form-group">-->
-                <!--<input type="text" id="name" name="name" ngModel class="form-control">
+        <!--<div class="form-group">-->
+        <!--<input type="text" id="name" name="name" ngModel class="form-control">
                 <button class="btn btn-default" type="submit" right>search</button>-->
-                <!--<div class="row">-->
-                    <!--<div class="col-md-3" id="radioBtns">-->
-                        <!--<input type="radio" value="title" name="search[field]" id="search_field_book" /> book-->
-                        <!--<input type="radio" value="author" name="search[field]" id="search_field_author" />author-->
-                    <!--</div>-->
-                    <!--<div class="col-md-9 input-group" id="inputSearch">-->
-                        <!--<input type="text" class="form-control" id="name" name="name" ngModel placeholder="Search by book title or author">-->
-                        <!--<span class="input-group-btn">-->
-                        <!--<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>-->
-                        <!--</span>-->
-                    <!--</div>-->
-                <!--</div>-->
+        <!--<div class="row">-->
+        <!--<div class="col-md-3" id="radioBtns">-->
+        <!--<input type="radio" value="title" name="search[field]" id="search_field_book" /> book-->
+        <!--<input type="radio" value="author" name="search[field]" id="search_field_author" />author-->
+        <!--</div>-->
+        <!--<div class="col-md-9 input-group" id="inputSearch">-->
+        <!--<input type="text" class="form-control" id="name" name="name" ngModel placeholder="Search by book title or author">-->
+        <!--<span class="input-group-btn">-->
+        <!--<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>-->
+        <!--</span>-->
+        <!--</div>-->
+        <!--</div>-->
 
-            <!--</div>-->
+        <!--</div>-->
         <!--</form>-->
 
         <!--<form #f="ngForm" (ngSubmit)="onSubmit(f)" id="authorForm" class="stacked greyBox searchBox searchBox large" action="/search"
@@ -44,27 +44,49 @@
     </div>
     <div class="container" style="height: auto">
         <div class="row">
-            <div class="col-lg-4" style="padding-top: 50px">
+            <div class="col-lg-5" id="categories">
                 <div class="list-group listLeft">
-                    <a href="homePage.html">
+                    <a href="#" [routerLink]="['/home']">
                     <button type="button" class="list-group-item active">
-                        <span class="fa fa-user"></span>&nbsp;Profile
+                        <span class="glyphicon glyphicon-star-empty"></span>&nbsp;Profile
                     </button>
-                </a><br>
-                    <a href="myWishList.html">
+                    </a>
+                    <br>
+                    <a href="#" [routerLink]="['/challenges']">
                     <button type="button" class="list-group-item">
-                        <span class="fa fa-heart-o"></span>&nbsp;My wish list
+                        <span class="glyphicon glyphicon-time"></span>&nbsp;Reading challenge
                     </button>
-                </a><br>
-                    <a href="#" [routerLink]="['/challenge']">
+                    </a>
+                    <br>
+                    <a href="#" [routerLink]="['/authors']">
                     <button type="button" class="list-group-item">
-                        <span class="fa fa-tags"></span>&nbsp;Reading challenge
+                        <span class="glyphicon glyphicon-user"></span>&nbsp;Authors
                     </button>
-                </a><br>
+                    </a>
+                    <br>
+                    <a href="#" [routerLink]="['/books']">
+                    <button type="button" class="list-group-item">
+                        <span class="	glyphicon glyphicon-book"></span>&nbsp;Books
+                    </button>
+                    </a>
+                    <br>
+                    <a href="#" [routerLink]="['/quotes']">
+                    <button type="button" class="list-group-item">
+                        <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Quotes
+                    </button>
+                    </a>
+                    <br>
 
                 </div>
             </div>
-            <!--content-->
+            <div class="col-lg-2"></div>
+            <div class="col-lg-5" style="padding-top: 3%">
+                <app-profile *ngIf="user" [user]="user"></app-profile>
+            </div>
+        </div>
+        <!--content-->
+
+        <div class="row">
             <div class="col-lg-7" style="padding-top: 20px">
                 <div class="row">
                     <div class="col-md-2"></div>
@@ -96,6 +118,8 @@
         </div>
     </div>
     <br>
-    <br>
-    <br>
-    <app-footer></app-footer>
+
+</div>
+<br>
+<br>
+<app-footer></app-footer>
